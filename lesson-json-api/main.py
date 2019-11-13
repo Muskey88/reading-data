@@ -4,10 +4,17 @@ import requests
 import json
 import pandas.api.types as ptypes
 
-url = ...
+# Hold a requests object in the 'swapi' variable
+swapi = requests.get('')
 
-url_json = ...
+# Create a dictionary from the requests object
+swapi_dict = ...
 
-df = ...
+# Create a DataFrame
+df = ....astype({'height': int})
 
+# 'created' column is datetime type
+df['created'] = ...
+
+# Series containing the names of people with height over 175
 df_names = ...

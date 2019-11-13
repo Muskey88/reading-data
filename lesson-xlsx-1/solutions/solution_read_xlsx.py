@@ -1,7 +1,8 @@
 import numpy as np
 import pandas as pd
-import pandas.api.types as ptypes
 
-df = pd.read_excel('playstore.xlsx', index_col=0, parse_dates=['Last Updated'])
+# Read in playstore.xlsx
+df = pd.read_excel('playstore.xlsx', parse_dates=['Last_Updated'], usecols=['App', 'Rating', 'Installs', 'Rating', 'Genres', 'Last_Updated'])
 
-df = df.dropna(thresh=8)
+# Filter top 25 rated apps
+df = df.sort_values('Rating', ascending=False).head(25)

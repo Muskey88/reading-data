@@ -1,7 +1,8 @@
 import numpy as np
 import pandas as pd
-import pandas.api.types as ptypes
 
+# Read in playstore.xlsx
 df = ...
 
+# Filter top 25 rated apps
 df = ...

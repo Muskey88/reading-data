@@ -4,11 +4,11 @@ import json
 from pandas.io.json import json_normalize
 
 # Parse the JSON file into a Python dictionary
-with ...
-    artists_dict = ...
+with open('artists.json') as file:
+    artists_dict = json.load(file)
 
 # Unpack the `bio` column into a DataFrame, include the `name` column
-bio = ...
+bio_df = json_normalize(artists_dict, record_path='bio', meta='name')
 
 # df should contain artists that have greater than 150 paintings
-df = ...
+df = bio_df[bio_df['paintings'] > 150]

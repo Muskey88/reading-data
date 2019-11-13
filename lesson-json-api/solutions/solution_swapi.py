@@ -4,10 +4,17 @@ import requests
 import json
 import pandas.api.types as ptypes
 
-url = requests.get('https://swapi.co/api/people/?format=json')
+# Hold a requests object in the 'swapi' variable
+swapi = requests.get('https://swapi.co/api/people/?format=json')
 
-url_json = json.dumps(url.json()['results'])
+# Create a dictionary from the requests object
+swapi_dict = swapi.json()
 
-df = pd.read_json(url_json, convert_dates=['created', 'edited'])
+# Create a DataFrame
+df = pd.DataFrame.from_dict(swapi_dict['results']).astype({'height': int})
 
+# 'created' column is datetime type
+df['created'] = pd.to_datetime(df['created'])
+
+# Series containing the names of people with height over 175
 df_names = df[df['height'] > 175]['name']

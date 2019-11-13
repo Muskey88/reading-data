@@ -1,8 +1,13 @@
-# Exercise
+# Reading Playstore Apps Excel File with Multiple Sheets
 
-Read and store in a `DataFrame` the data within the `playstore.xlsx` file.
+Read the `playstore.xlsx` excel file and store it in a DataFrame.
 
-- When reading in the file, only use the columns 'App', 'Rating', 'Installs', 'Content Rating', 'Genres', 'Last Updated'.
-- Be sure to have numeric indexing.
-- Make sure `Last Updated` is in datetime format, try do this while reading the file into the DataFrame.
-- `df` should only contain the top 25 observations by `Rating`.
+You will need to use `pd.ExcelFile` for this excel file because there are multiple sheets we will be parsing.
+
+`playstore` variable will contain the `Google_playstore` sheet in a DataFrame.
+
+`content_id` variable will contain the `Content_ID` sheet in a DataFrame
+
+`df` should be a combination of the two previous DataFrames, connected at the column level.
+
+This files originated as a CSV from Kaggle and has been altered for this course, https://www.kaggle.com/lava18/google-play-store-apps
